@@ -1,0 +1,14 @@
+{
+  "name": "mdxeditor-monorepo",
+  "private": true,
+  "scripts": {
+    "dev:editor": "npm --prefix packages/editor run dev",
+    "dev:docs": "npm --prefix apps/docs run dev",
+    "dev:all": "concurrently \"npm run dev:editor\" \"npm run dev:docs\"",
+    "test": "node --test apps/docs/test/*.test.mjs"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  },
+  "packageManager": "npm@9.5.1"
+}
