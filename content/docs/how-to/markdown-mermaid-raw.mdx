@@ -1,17 +1,55 @@
 ---
 title: "Write Markdown & Mermaid (Raw)"
-description: "Use raw Markdown and Mermaid syntax in docs."
+description: "Use raw Markdown and Mermaid syntax in docs with practical examples."
 status: draft
 ---
 
 # Write Markdown & Mermaid (Raw)
 
+This guide shows how to write clean Markdown and Mermaid directly in your docs.
+
 ## Markdown basics
-- Headings: `#`, `##`, `###`
-- Lists: `- item` or `1. item`
-- Code: backticks for inline and fenced blocks for multi-line
+
+### Headings
+```md
+# Page Title
+## Section
+### Subsection
+```
+
+### Lists
+```md
+- Bullet item
+- Another item
+
+1. Step one
+2. Step two
+```
+
+### Emphasis
+```md
+**Bold**, *Italic*, and `inline code`
+```
+
+### Links
+```md
+[OpenAI](https://openai.com)
+```
+
+### Images
+```md
+![Alt text](/docs-assets/example.png)
+```
+
+### Code blocks
+```md
+```ts
+const status = "draft";
+```
+```
 
 ## Mermaid (raw)
+
 Use a fenced code block with `mermaid`:
 
 ```mermaid
@@ -21,6 +59,93 @@ graph TD
   B -->|No| D[Do other thing]
 ```
 
-## Tips
-- Keep diagrams small and focused.
-- Use clear labels and consistent casing.
+### Sequence diagram example
+```mermaid
+sequenceDiagram
+  participant User
+  participant App
+  User->>App: Open editor
+  App-->>User: Render page
+```
+
+### Flowchart tips
+- Keep nodes short and readable
+- Use consistent casing in labels
+- Avoid deep nesting in one diagram
+
+## Common mistakes
+- Missing closing fences (```)
+- Using unsupported Mermaid syntax
+- Mixing tabs and spaces in code blocks
+
+## Recommended structure
+- Title
+- Short summary
+- Sections with examples
+- Notes or caveats
+
+## Mermaid examples
+
+### Flowchart
+```mermaid
+graph TD
+  A[Start] --> B{Decision}
+  B -->|Yes| C[Do thing]
+  B -->|No| D[Do other thing]
+```
+
+### Sequence diagram
+```mermaid
+sequenceDiagram
+  participant User
+  participant App
+  User->>App: Open editor
+  App-->>User: Render page
+```
+
+### Class diagram
+```mermaid
+classDiagram
+  class User {
+    +String id
+    +String email
+  }
+  class Document {
+    +String id
+    +String status
+  }
+  User "1" --> "*" Document
+```
+
+### State diagram
+```mermaid
+stateDiagram-v2
+  [*] --> Draft
+  Draft --> InReview
+  InReview --> Approved
+  Draft --> Decommissioned
+```
+
+### ER diagram
+```mermaid
+erDiagram
+  USER ||--o{ DOCUMENT : owns
+  DOCUMENT {
+    string id
+    string title
+    string status
+  }
+```
+
+### Gantt
+```mermaid
+gantt
+  title Docs Workflow
+  dateFormat  YYYY-MM-DD
+  section Draft
+  Write draft :a1, 2025-02-01, 3d
+  section Review
+  Review PR :a2, after a1, 2d
+  section Publish
+  Merge to main :a3, after a2, 1d
+```
