@@ -1,21 +1,40 @@
 ---
 title: "Save Flow & Status Badges"
-description: "How saving works and how status badges are used."
+description: "How saving works and how statuses affect publication."
 status: draft
 ---
 
 # Save Flow & Status Badges
 
-## Save modes
-- **Draft/PR** saves to a draft branch and may open a PR
-- **Approved** saves directly to main
+This guide explains save modes, PR workflow, and what each status means.
 
-## Status badges
-- **Draft**: work in progress
-- **In Review**: PR is open
-- **Approved**: merged to main
-- **Decommissioned**: deprecated content
+## Save flow
 
-## Notes
-- Approved status is only final when committed to main.
-- Use "Update from main" if your draft is out of date.
+### Draft and review
+- Draft changes are saved to a draft branch
+- PRs can be opened for review
+- Review status indicates a PR is open
+
+### Approved
+- Approved status commits directly to main
+- This is the only status that immediately updates Fumadocs
+
+## Status meaning
+
+- **Draft**: Work in progress, not ready for review
+- **In Review**: PR is open and awaiting feedback
+- **Approved**: Merged or committed to main
+- **Decommissioned**: Deprecated content
+
+## Badges on the docs page
+- Badges are derived from the `status` frontmatter field
+- Only one status is stored in frontmatter
+
+## Best practices
+- Keep draft status while iterating
+- Switch to review when sharing
+- Set approved only when final
+
+## Troubleshooting
+- If you don’t see changes in Fumadocs, confirm you committed to main
+- If a page won’t render, check for MDX errors or merge markers
