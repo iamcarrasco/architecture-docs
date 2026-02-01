@@ -24,7 +24,7 @@ The OAuth app must have access to the repo you want to edit. The user signs in w
 
 ## Content location
 
-Docs are stored under `content/docs`. Fumadocs uses `source.config.ts` to scan and build.
+Docs are stored under `/content/docs` (repo root). Fumadocs uses `source.config.ts` to scan and build.
 Images uploaded from the editor are saved under `public/docs-assets` by default.
 Runtime docs rendering pulls from GitHub on each request and requires `GITHUB_READ_TOKEN` with read access to the repo.
 
